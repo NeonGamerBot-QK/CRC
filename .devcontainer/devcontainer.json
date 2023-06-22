@@ -1,0 +1,10 @@
+{
+    "image": "ghcr.io/parkervcp/yolks:nodejs_16",
+    "forwardPorts": [3000],
+    "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash"
+    },
+    "postCreateCommand": "yarn",
+    "appPort": 3000,
+    "name": "Setup"
+}
