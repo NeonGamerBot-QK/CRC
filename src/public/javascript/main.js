@@ -53,4 +53,5 @@ function changeTheme(theme) {
     ).setAttribute("data-theme", theme)
     document.querySelector('html').setAttribute('data-theme', localStorage.getItem('theme'))
 }
+window.changeTheme = changeTheme
 console.log("THEME")

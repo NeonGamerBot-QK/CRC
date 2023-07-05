@@ -37,7 +37,7 @@ function Authenticated(req,res,next) {
 }
 app.engine("html", (filePath, ops = { title: null }, cb) => {
     // let content = fs.readFileSync(filePath).toString();
-    const requests = db.get("requests")
+    const requests = db.get("requests") || 0
     // const layout = fs.readFileSync(path.join(__dirname, "views", "layout.html"));
     const acContent = Buffer.from(ejs.render(fs.readFileSync(filePath).toString(), ops)).toString('base64')
     let content =  renderContent("layout.html", { renderContent, ...ops, content: acContent, requests })
@@ -59,7 +59,7 @@ app.get('/contacts', (req,res) => {
     res.render('login.html', { title: "Login" })
 })
 app.post('/contacts', Authenticated, (req,res) => {
-    res.render('contacts.html', { title: "Contacts", contacts: db.get("responses") })
+    res.render('contacts.html', { title: "Contacts", contacts: db.get("responses") || [] })
 })
 app.post('/token', (req,res) => {
     const token = uuid.v4()

@@ -11,8 +11,9 @@
     "dev:compile": "ncc run . -d",
     "dev": "nodemon .",
     "dev:compile-sync": "nodemon --exec 'yarn dev:compile'",
-    "build": "ncc build . -m -s -a",
-    "start": "node dist"
+    "build": "ncc build . -m -a",
+    "start": "node dist",
+    "clean": "rimraf dist src/db.json"
   },
   "dependencies": {
     "cors": "^2.8.5",
@@ -29,6 +30,7 @@
     "husky": "^8.0.3",
     "jest": "^29.5.0",
     "nodemon": "^2.0.22",
-    "prettier": "^2.8.8"
+    "prettier": "^2.8.8",
+    "rimraf": "^5.0.1"
   }
 }
