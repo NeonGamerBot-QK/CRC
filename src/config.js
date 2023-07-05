@@ -9,9 +9,9 @@ module.exports = {
         port: process.env.EMAIL_PORT,
         username: process.env.EMAIL_USER,
         password: process.env.EMAIL_PASSWORD,
-        secure: process.env.EMAIL_SECURE,
-        type: process.env.USE_GMAIL ? 'gmail' :  'smtp'
+        secure: process.env.EMAIL_SECURE === 'true',
     },
     myEmail: process.env.MY_EMAIL_ADDRESS,
-    dbPath: process.env.DB_PATH ||  process.env.STORE_PATH || path.join(__dirname, 'db.json')
+    dbPath: process.env.DB_PATH ||  process.env.STORE_PATH || path.join(__dirname, 'db.json'),
+    password: process.env.PASSWORD || "changeme",
 }

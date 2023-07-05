@@ -1,0 +1,21 @@
+<div class="swiper border rounded-xl shadow-lg overflow min-w-screen">
+    <!-- Additional required wrapper -->
+    <div class="swiper-wrapper">
+        <!-- Slides -->
+        <% ['css3', 'html5', 'js', 'java', 'markdown', 'swift', 'cloudflare', 'bootstrap', 'node-js', 'npm', 'react', 'sass', 'yarn', 'docker', 'raspberry-pi'].forEach((item, index) => { %>
+<div class="swiper-slide text-slate-600 hover:text-slate-500 language-slider-element lg:mx-12"><i class="fa-brands fa-<%=item%> lg:text-9xl md:text-7xl text-5xl"
+               ></i></div>
+        <% }) %>
+
+
+    </div>
+    <!-- If we need pagination -->
+    <div class="swiper-pagination"></div>
+
+    <!-- If we need navigation buttons -->
+    <!-- <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div> -->
+
+    <!-- If we need scrollbar -->
+    <!-- <div class="swiper-scrollbar"></div> -->
+</div>

@@ -9,17 +9,20 @@
   "private": false,
   "scripts": {
     "dev:compile": "ncc run . -d",
-    "dev": "nodemon --exec 'yarn dev:compile'",
+    "dev": "nodemon .",
+    "dev:compile-sync": "nodemon --exec 'yarn dev:compile'",
     "build": "ncc build . -m -s -a",
     "start": "node dist"
   },
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^16.3.1",
     "ejs": "^3.1.9",
     "express": "^4.18.2",
     "morgan": "^1.10.0",
     "nodemailer": "^6.9.3",
-    "simple-json-db": "^2.0.0"
+    "simple-json-db": "^2.0.0",
+    "uuid": "^9.0.0"
   },
   "devDependencies": {
     "@vercel/ncc": "^0.36.1",

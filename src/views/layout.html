@@ -1,38 +1,108 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cloud Resume Challnge - <%=title%> </title>
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.1.5/dist/full.css" rel="stylesheet" type="text/css" />
-<script src="https://cdn.tailwindcss.com"></script>
+<html lang="en">
 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cloud Resume Challnge - <%=title%>
+  </title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@3.1.5/dist/full.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="/css/scroll-animations.css">
+  <!-- <script src="https://cdn.jsdelivr.net/npm/theme-change@2.0.2/index.js"></script> -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/tsparticles/2.10.1/tsparticles.min.js" ></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tsparticles/1.18.1/tsparticles.min.js"
+    integrity="sha512-PYHWDEuXOTJ9MZ+/QHqkbgiEYZ+LImQv3i/9NyYOABFvK37e4q4Wg7aQDN1JpoGiEu1TYZh6JMrZluZox2gbDA=="
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.ckeditor.com/ckeditor5/38.1.0/classic/ckeditor.js"></script>
+
+  <style>
+    @keyframes fade-in {
+      0% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    #app {
+      transition: all 1s ease-in-out;
+    }
+
+    #tsparticles {
+      position: fixed !important;
+      /* background-repeat: no-repeat !important;
+  background-size: cover !important; */
+      width: 100%;
+      height: 100%;
+      z-index: -2;
+    }
+  </style>
 </head>
 
 <body>
-    <%- renderContent('partials/navbar.html',{})  -%>
-   <div id="app"></div>
-</body>
-<script>
+  <div id="tsparticles"></div>
+  <%- renderContent('partials/navbar.html',{}) -%>
+    <div id="app"></div>
+    <%- renderContent('partials/footer.html',{ requests }) -%>
+      <script>
+        tsParticles.load('tsparticles', {
+          background: {
+            color: '#000000',
+            opacity: 0
+          },
+          particles: {
+            color: {
+              value: '#CF5C36'
+            },
+            opacity: {
+              value: 0.5
+            },
+            lineLinked: {
+              color: {
+                value: '#EFC88B'
+              },
+              consent: true
+            }
+          },
+          interactivity: {
+            detect_on: 'window',
+            events: {
+              onHover: {
+                mode: ['grab', 'bubble'],
+                enable: true
+              }
+            },
+            modes: {
+              grab: {
+                distance: 200
+              },
+              bubble: {
+                size: 10
+              }
+            }
+          },
+          preset: 'basic'
+        });
 
-    const loading = `<%- renderContent('partials/loading.html',{})  -%>`
-    // console.log(loading)
-    const content = `<%- content  -%>`
-   
-    const app = document.querySelector("#app")
-    app.innerHTML = loading
-   
-   console.log("INIT")
-   const date = Date.now()
-    window.onload = () => {
-        console.log("window#load", Date.now() - date)
-fetch("/request", { method: "POST"}).then((r) => {
-    console.log(r.status)
-    setTimeout(() => {
-app.innerHTML = content;
-    }, 1_500)
-})
-       
-    }
+      </script>
+</body>
+
+<script>
+  const loading = `<%- renderContent('partials/loading.html',{})  -%>`
+  // console.log(loading)
+  const content = `<%= content  %>`
 </script>
+<script src="/javascript/main.js"></script>
+<script src="/javascript/scroll-effects.js"></script>
+
 </html>

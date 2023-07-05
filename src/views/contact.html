@@ -1,0 +1,36 @@
+<script src="/javascript/form.js"></script>
+
+<div class="hero min-h-screen bg-base-200">
+    <div class="hero-content text-center">
+      <div class="lg:max-w-7xl max-w-sm md:max-w-lg">
+        <h1 class="text-5xl font-bold" style="animation: fade-in 3s forwards cubic-bezier(0.5, 1, 0.89, 1);">Contact</h1>
+        <p class="py-6">Contact me</p>
+        <!-- <button class="btn btn-primary">Get Started</button> -->
+        <div   class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+        <form id="sendemail">
+          <div class="card-body">
+              <div class="form-control">
+                <label class="label">
+                  <span class="label-text">Email</span>
+                </label>
+                <input type="text" placeholder="email" name="email" class="input input-bordered" required/>
+              </div>
+              <div class="form-control">
+                <label class="label">
+                  <span class="label-text">Name</span>
+                </label>
+                <input type="text" placeholder="name" name="name" class="input input-bordered" required/>
+              </div>
+              <div class="form-control">
+                <label class="label">
+                  <span class="label-text">Message</span>
+                </label>
+          <textarea name="editor" id="" cols="30" rows="10" class="input input-bordered" id="editor" required></textarea>
+              </div>
+                <button class="btn btn-neutral m-5 ml-10" type="submit" id="submit_button">
+           Submit 
+           </button>
+              </form>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,24 @@
+<div class="hero min-h-screen bg-base-200">
+    <div class="hero-content text-center">
+      <div class="lg:max-w-7xl max-w-sm md:max-w-lg">
+        <h1 class="text-5xl font-bold" style="animation: fade-in 3s forwards cubic-bezier(0.5, 1, 0.89, 1);">Contacts</h1>
+        <p class="py-6">Contact me</p>
+        <!-- <button class="btn btn-primary">Get Started</button> -->
+<!-- list responese here tehehe -->
+<% contacts.forEach(function(contact){ %>
+<div class="card shadow-2xl bg-base-100">
+    <div class="card-body">
+        <div class="justify-content ">
+            <h1> From <%= contact.name %> </h1>
+            <div class="border shadow-lg rounded-md">
+                <%- contact.body -%>
+            </div>
+            <a href="mailto:<%=contact.email%>">Respond</a>
+            <footer>
+                <span> sent at <%= new Date(contact.sentAt) %></span>
+            </footer>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% }) %>
