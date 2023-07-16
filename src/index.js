@@ -21,8 +21,10 @@ const renderContent = (filePath, ops) => {
 };
 // console.log(renderContent("layout.html", { renderContent, title: "test" }))
 app.set("views", path.join(__dirname, "views"));
-
+// console.log("#e", process.env.NODE_ENV)
 if(process.env.NODE_ENV !== "test") {
+app.use(morgan("combined"));
+} else if(process.env.NODE_ENV === "development") { 
 app.use(morgan("dev"));
 }
 app.use(express.json());
