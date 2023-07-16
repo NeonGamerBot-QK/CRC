@@ -14,7 +14,11 @@
     "build": "ncc build . -m -a",
     "start": "node dist",
     "clean": "rimraf dist src/db.json",
-    "test": "node util/tests.js"
+    "test": "node util/tests.js",
+    "husky": "husky install",
+    "preinstall": "yarn husky",
+    "precommit": "yarn test",
+    "prepush": "yarn test"
   },
   "dependencies": {
     "cors": "^2.8.5",
