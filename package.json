@@ -15,10 +15,7 @@
     "start": "node dist",
     "clean": "rimraf dist src/db.json",
     "test": "node util/tests.js",
-    "husky": "husky install",
-    "preinstall": "npm run husky",
-    "precommit": "npm run test",
-    "prepush": "npm run test"
+    "husky": "husky install"
   },
   "dependencies": {
     "cors": "^2.8.5",
