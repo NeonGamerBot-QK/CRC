@@ -16,9 +16,9 @@
     "clean": "rimraf dist src/db.json",
     "test": "node util/tests.js",
     "husky": "husky install",
-    "preinstall": "yarn husky",
-    "precommit": "yarn test",
-    "prepush": "yarn test"
+    "preinstall": "npm run husky",
+    "precommit": "npm run test",
+    "prepush": "npm run test"
   },
   "dependencies": {
     "cors": "^2.8.5",
