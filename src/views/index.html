@@ -1,67 +1,118 @@
 <div class="hero min-h-screen transition duration-500 ease-in-out">
-    <div class="hero-content text-center scroll-smooth">
-      <div class="lg:max-w-7xl max-w-sm md:max-w-lg" >
+  <div class="hero-content text-center scroll-smooth">
+    <div class="lg:max-w-7xl max-w-sm md:max-w-lg">
       <div class="mb-40 mt-20">
-        <h1 class="text-5xl font-bold" style="animation: fade-in 3s forwards cubic-bezier(0.5, 1, 0.89, 1);">Hi there, I am <span class="text-indigo-700 hover:text-indigo-600 duration-500 ease-in-out">Saahil</span> </h1>
+        <h1
+          class="text-5xl font-bold"
+          style="animation: fade-in 3s forwards cubic-bezier(0.5, 1, 0.89, 1)"
+        >
+          Hi there, I am
+          <span
+            class="text-indigo-700 hover:text-indigo-600 duration-500 ease-in-out"
+            >Saahil</span
+          >
+        </h1>
         <p class="py-6">
-          Hi there, my name is <span class="text-indigo-700 hover:text-indigo-600 duration-500 ease-in-out font-bold">Saahil</span> and my main hobby is coding in <span class="text-yellow-700 hover:text-yellow-600 duration-500 ease-in-out font-bold"><i class="fa-brands fa-js"></i> Javascript</span> and i spend most of  my time working on  <span class="text-gray-700 hover:text-gray-600 duration-500 ease-in-out font-bold"> C++</span>, <span class="text-purple-700 hover:text-purple-600 duration-500 ease-in-out font-bold"> <i class="fa-brands fa-java"></i> Java</span>, <span class="text-green-700 hover:text-green-600 duration-500 ease-in-out font-bold"> <i class="fa-brands fa-node-js"></i> NodeJS</span> and <span class="text-blue-700 hover:text-blue-600 duration-500 ease-in-out font-bold"> <i class="fa-brands fa-react"></i> ReactJS</span> projects. I also like to worked on <span class="text-pink-700 hover:text-pink-600 duration-500 ease-in-out font-bold"><i class="fa-brands fa-swift"></i> Swift</span> projects when i was younger.
+          Hi there, my name is
+          <span
+            class="text-indigo-700 hover:text-indigo-600 duration-500 ease-in-out font-bold"
+            >Saahil</span
+          >
+          and my main hobby is coding in
+          <span
+            class="text-yellow-700 hover:text-yellow-600 duration-500 ease-in-out font-bold"
+            ><i class="fa-brands fa-js"></i> Javascript</span
+          >
+          and i spend most of my time working on
+          <span
+            class="text-gray-700 hover:text-gray-600 duration-500 ease-in-out font-bold"
+          >
+            C++</span
+          >,
+          <span
+            class="text-purple-700 hover:text-purple-600 duration-500 ease-in-out font-bold"
+          >
+            <i class="fa-brands fa-java"></i> Java</span
+          >,
+          <span
+            class="text-green-700 hover:text-green-600 duration-500 ease-in-out font-bold"
+          >
+            <i class="fa-brands fa-node-js"></i> NodeJS</span
+          >
+          and
+          <span
+            class="text-blue-700 hover:text-blue-600 duration-500 ease-in-out font-bold"
+          >
+            <i class="fa-brands fa-react"></i> ReactJS</span
+          >
+          projects. I also like to worked on
+          <span
+            class="text-pink-700 hover:text-pink-600 duration-500 ease-in-out font-bold"
+            ><i class="fa-brands fa-swift"></i> Swift</span
+          >
+          projects when i was younger.
         </p>
       </div>
-      <h2 class="font-bold text-4xl mb-10 text-orange-500 hover:text-orange-400">SkillSet</h2>
-        <%- renderContent('partials/codes.html',{})  -%>
-      <h2 class="font-bold text-4xl  mt-10 text-orange-500 hover:text-orange-400">Projects (scraped from github)</h2>
+      <h2
+        class="font-bold text-4xl mb-10 text-orange-500 hover:text-orange-400"
+      >
+        SkillSet
+      </h2>
+      <%- renderContent('partials/codes.html',{}) -%>
+      <h2
+        class="font-bold text-4xl mt-10 text-orange-500 hover:text-orange-400"
+      >
+        Projects (scraped from github)
+      </h2>
 
-        <div id="cards" class="grid ">
-  <span class="loading loading-spinner loading-lg"></span>
-
-        </div>
-      </div>    
+      <div id="cards" class="grid">
+        <span class="loading loading-spinner loading-lg"></span>
+      </div>
     </div>
   </div>
-  <script src="/javascript/github-cards.js"></script>
-  <script>
-    const swiper = new Swiper('.swiper', {
+</div>
+<script src="/javascript/github-cards.js"></script>
+<script>
+  const swiper = new Swiper(".swiper", {
     //   modules: [Autoplay],
-            // class: "swiper",
-      spaceBetween: 110,
-      direction: "horizontal",
-      autoplay: {
-        delay: 0,
-        disableOnInteraction: false
+    // class: "swiper",
+    spaceBetween: 110,
+    direction: "horizontal",
+    autoplay: {
+      delay: 0,
+      disableOnInteraction: false,
+    },
+    grabCursor: true,
+    loop: true,
+    speed: 2500,
+    initialSlide: 0,
+    centeredSlides: true,
+
+    slidesPerView: 4,
+
+    breakpoints: {
+      768: {
+        slidesPerView: 6,
+        spaceBetween: 50,
       },
-      grabCursor: true,
-      loop: true,
-      speed: 2500,
-      initialSlide: 0,
-      centeredSlides: true,
-      
-      slidesPerView: 4,
-
-      breakpoints: {
-        768: {
-          slidesPerView: 6,
-      spaceBetween: 50,
-
-        },
-        1024: {
-          slidesPerView: 8,
-          spaceBetween: 50,
-
-        },
-        1280: {
-
-          slidesPerView: 10,
-        },
-        1536: {
-          slidesPerView: 12,
-        },
-        2048: {
-          slidesPerView: 14,
-        },
-        2560: { // ultrawide
-          slidesPerView: 18,
-        }
-      }
-    });
-    swiper.autoplay.start();
+      1024: {
+        slidesPerView: 8,
+        spaceBetween: 50,
+      },
+      1280: {
+        slidesPerView: 10,
+      },
+      1536: {
+        slidesPerView: 12,
+      },
+      2048: {
+        slidesPerView: 14,
+      },
+      2560: {
+        // ultrawide
+        slidesPerView: 18,
+      },
+    },
+  });
+  swiper.autoplay.start();
 </script>

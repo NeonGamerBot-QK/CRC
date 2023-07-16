@@ -2,7 +2,7 @@
 // https://jestjs.io/docs/en/configuration.html
 const config = require("../src/config");
 const request = require("supertest");
-const {app, listener} = require("../src/index");
+const { app, listener } = require("../src/index");
 const uuid = require("uuid");
 let l = listener;
 describe("Test the root path", () => {
@@ -59,24 +59,22 @@ describe("POST /token", () => {
     expect(response.body.token).toBeDefined();
   });
 });
-describe('404 Works (/uuid)', () => {
+describe("404 Works (/uuid)", () => {
   const id = uuid.v4();
-  test('GET /'+id, async () => {
+  test("GET /" + id, async () => {
     const response = await request(app).get(`/${id}`);
     expect(response.statusCode).toBe(404);
-  }
-  )
-  test('It should be in html', async () => {
+  });
+  test("It should be in html", async () => {
     const response = await request(app).get(`/${id}`);
     expect(response.type).toBe("text/html");
-  })
- 
-})
+  });
+});
 beforeAll(() => {
-l.close();
-l = app.listen(config.port);
-})
+  l.close();
+  l = app.listen(config.port);
+});
 
 afterAll((d) => {
-l.close(d);
-})
+  l.close(d);
+});

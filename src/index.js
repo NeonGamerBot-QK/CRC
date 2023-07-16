@@ -22,10 +22,10 @@ const renderContent = (filePath, ops) => {
 // console.log(renderContent("layout.html", { renderContent, title: "test" }))
 app.set("views", path.join(__dirname, "views"));
 // console.log("#e", process.env.NODE_ENV)
-if(process.env.NODE_ENV !== "test") {
-app.use(morgan("combined"));
-} else if(process.env.NODE_ENV === "development") { 
-app.use(morgan("dev"));
+if (process.env.NODE_ENV !== "test") {
+  app.use(morgan("combined"));
+} else if (process.env.NODE_ENV === "development") {
+  app.use(morgan("dev"));
 }
 app.use(express.json());
 app.use(require("cors")());
@@ -47,15 +47,15 @@ app.engine("html", (filePath, ops = { title: null }, cb) => {
   const requests = db.get("requests") || 0;
   // const layout = fs.readFileSync(path.join(__dirname, "views", "layout.html"));
   const acContent = Buffer.from(
-    ejs.render(fs.readFileSync(filePath).toString(), ops)
+    ejs.render(fs.readFileSync(filePath).toString(), ops),
   ).toString("base64");
   let content = renderContent("layout.html", {
     renderContent,
     ...ops,
     content: acContent,
-    requests
+    requests,
   });
-//   console.debug("render ", filePath);
+  //   console.debug("render ", filePath);
   cb(null, content);
 });
 app.set("view engine", "html");
@@ -75,7 +75,7 @@ app.get("/contacts", (req, res) => {
 app.post("/contacts", Authenticated, (req, res) => {
   res.render("contacts.html", {
     title: "Contacts",
-    contacts: db.get("responses") || []
+    contacts: db.get("responses") || [],
   });
 });
 app.post("/token", (req, res) => {
@@ -127,9 +127,9 @@ app.post("/submit", (req, res) => {
     secure: config.emailConfig.secure,
     auth: {
       user: config.emailConfig.username,
-      pass: config.emailConfig.password
+      pass: config.emailConfig.password,
     },
-    tls: { rejectUnauthorized: false }
+    tls: { rejectUnauthorized: false },
   });
   // send mail with defined transport object
 
@@ -142,7 +142,7 @@ app.post("/submit", (req, res) => {
       to: config.myEmail,
       subject: `New message from ${name} <${email}>`,
       text: body,
-      html: body
+      html: body,
     })
     .then((info) => {
       console.log("Message sent: %s", info.messageId);
@@ -159,8 +159,8 @@ app.post("/request", (req, res) => {
   res.status(201).end();
 });
 const listener = app.listen(config.port, () => {
-  console.log("Listening on ::"+config.port);
+  console.log("Listening on ::" + config.port);
 });
 
-// export app, listener 
-module.exports = {app,listener};
+// export app, listener
+module.exports = { app, listener };

@@ -1,25 +1,39 @@
 <div class="min-h-screen">
-
-<div class="rounded-box grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
-    <%  [ "light","dark",  "bumblebee", "emerald", "corporate", "synthwave", "retro", "cyberpunk","halloween", "garden", "forest", "aqua", "lofi", "pastel", "fantasy",  "wireframe", "black",  "luxury",  "dracula", "cmyk",   "autumn",   "business", "acid", "lemonade","night",  "coffee","winter",
-  ].forEach(color => { %>
-    <div class="border-base-content/20 hover:border-base-content/40 overflow-hidden rounded-lg border outline outline-2 outline-offset-2 outline-transparent"
-        data-set-theme="<%=color%>" data-act-class="!outline-base-content" >
-        <div data-theme="<%=color%>" class="bg-base-100 text-base-content w-full cursor-pointer font-sans">
-            <div class="grid grid-cols-5 grid-rows-3">
-                <div class="bg-base-200 col-start-1 row-span-2 row-start-1"></div>
-                <div class="bg-base-300 col-start-1 row-start-3"></div>
-                <div class="bg-base-100 col-span-4 col-start-2 row-span-3 row-start-1 flex flex-col gap-1 p-2">
-                    <div class="font-bold"><%=color%></div>
-                    <button class="btn btn-primary" onclick="changeTheme('<%=color%>')" >Use theme</button>
-                </div>
-            </div>
+  <div
+    class="rounded-box grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5"
+  >
+    <% [ "light","dark", "bumblebee", "emerald", "corporate", "synthwave",
+    "retro", "cyberpunk","halloween", "garden", "forest", "aqua", "lofi",
+    "pastel", "fantasy", "wireframe", "black", "luxury", "dracula", "cmyk",
+    "autumn", "business", "acid", "lemonade","night", "coffee","winter",
+    ].forEach(color => { %>
+    <div
+      class="border-base-content/20 hover:border-base-content/40 overflow-hidden rounded-lg border outline outline-2 outline-offset-2 outline-transparent"
+      data-set-theme="<%=color%>"
+      data-act-class="!outline-base-content"
+    >
+      <div
+        data-theme="<%=color%>"
+        class="bg-base-100 text-base-content w-full cursor-pointer font-sans"
+      >
+        <div class="grid grid-cols-5 grid-rows-3">
+          <div class="bg-base-200 col-start-1 row-span-2 row-start-1"></div>
+          <div class="bg-base-300 col-start-1 row-start-3"></div>
+          <div
+            class="bg-base-100 col-span-4 col-start-2 row-span-3 row-start-1 flex flex-col gap-1 p-2"
+          >
+            <div class="font-bold"><%=color%></div>
+            <button class="btn btn-primary" onclick="changeTheme('<%=color%>')">
+              Use theme
+            </button>
+          </div>
         </div>
+      </div>
     </div>
     <% }) %>
-</div>
-<script src="/javascript/theme.js"></script>
-<script>
-    console.log("LOADED MAYBE")
-</script>
+  </div>
+  <script src="/javascript/theme.js"></script>
+  <script>
+    console.log("LOADED MAYBE");
+  </script>
 </div>

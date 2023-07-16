@@ -1,5 +1,5 @@
 let section = document.querySelectorAll("section");
-let menu =document.querySelectorAll(".navbar .flex-none .menu li a");
+let menu = document.querySelectorAll(".navbar .flex-none .menu li a");
 
 window.onscroll = () => {
   section.forEach((i) => {
@@ -11,7 +11,7 @@ window.onscroll = () => {
     if (top >= offset && top < offset + height) {
       menu.forEach((link) => {
         link.classList.remove("active");
-        console.log("adding effect", id)
+        console.log("adding effect", id);
         document
           .querySelector("header nav a[href*=" + id + "]")
           .classList.add("active");
