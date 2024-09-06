@@ -1,6 +1,6 @@
 ## Contributing
 
-Follow Code of Conduct. 
+Follow Code of Conduct.
 <br />
 Contribute to the main branch.
 <br />
