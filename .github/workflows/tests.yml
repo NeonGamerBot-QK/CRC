@@ -2,13 +2,13 @@ name: Node.js Tests
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   build:
-
+    name: tests
     runs-on: ubuntu-latest
 
     strategy:
