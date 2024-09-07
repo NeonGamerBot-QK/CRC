@@ -1,12 +1,12 @@
-name: publish
+name: publish docker
 on:
   push:
     branches:
-      - "master"
+      - "main"
   workflow_dispatch:
 
 jobs:
-  publish-hello-docker-image:
+  publish-docker-image:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2

@@ -8,7 +8,7 @@ COPY package*.json /app
 LABEL org.opencontainers.image.source https://github.com/NeonGamerBot-QK/crc
 # RUN npm install
 # If you are building your code for production
-RUN npm ci --omit=dev
+RUN npm install --omit=dev
 COPY . /app
 EXPOSE 3000
 RUN npm run build
