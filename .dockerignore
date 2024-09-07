@@ -1,0 +1,11 @@
+node_modules
+npm-debug.log
+SECURITY.md
+.github
+CODE_OF_CONDUCT.md
+.env.example
+.devcontainer
+__tests__
+.husky
+.vscode
+nodemon.json
