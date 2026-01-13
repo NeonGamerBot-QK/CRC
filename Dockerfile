@@ -25,8 +25,8 @@ LABEL org.opencontainers.image.source="https://github.com/NeonGamerBot-QK/crc"
 LABEL org.opencontainers.image.description="Cloud Resume Project"
 
 # Create non-root user for security
-RUN addgroup -g 1001 -S appgroup && \
-    adduser -S appuser -u 1001 -G appgroup
+RUN addgroup -g 1001 -S appgroup \
+  && adduser -S appuser -u 1001 -G appgroup
 
 # Copy only the bundled output from builder stage
 COPY --from=builder /app/dist ./dist
