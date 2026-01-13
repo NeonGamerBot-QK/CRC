@@ -1,14 +1,14 @@
 require("dotenv").config();
 // imports
 const express = require("express");
-const jsonDb = require("simple-json-db");
+const LightDB = require("./db");
 // file imports
 const config = require("./config");
 const path = require("path");
 const fs = require("fs");
 const morgan = require("morgan");
 const ejs = require("ejs");
-const db = new jsonDb(config.dbPath);
+const db = new LightDB(config.dbPath);
 const app = express();
 const uuid = require("uuid");
 
