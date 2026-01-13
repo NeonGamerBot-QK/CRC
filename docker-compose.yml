@@ -1,0 +1,31 @@
+services:
+  crc:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: crc
+    restart: unless-stopped
+    ports:
+      - "${PORT:-3000}:3000"
+    environment:
+      - PORT=3000
+      - PASSWORD=${PASSWORD:-changeme}
+      - EMAIL_HOST=${EMAIL_HOST:-}
+      - EMAIL_PORT=${EMAIL_PORT:-}
+      - EMAIL_USER=${EMAIL_USER:-}
+      - EMAIL_PASSWORD=${EMAIL_PASSWORD:-}
+      - EMAIL_SECURE=${EMAIL_SECURE:-false}
+      - MY_EMAIL_ADDRESS=${MY_EMAIL_ADDRESS:-}
+      - DB_PATH=/app/data/db.json
+    volumes:
+      # Persist database file across container restarts
+      - crc-data:/app/data
+    healthcheck:
+      test: ["CMD", "wget", "-q", "--spider", "http://localhost:3000/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 5s
+
+volumes:
+  crc-data:

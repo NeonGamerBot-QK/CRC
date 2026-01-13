@@ -1,11 +1,35 @@
+# Dependencies and build output
 node_modules
+dist
 npm-debug.log
-SECURITY.md
+
+# Version control
+.git
 .github
-CODE_OF_CONDUCT.md
-.env.example
-.devcontainer
-__tests__
+
+# Development tooling
 .husky
 .vscode
+.devcontainer
 nodemon.json
+
+# Tests
+__tests__
+util
+
+# Documentation
+*.md
+
+# Lock files (use package.json only)
+yarn.lock
+pnpm-lock.yaml
+
+# Environment files (use docker-compose env instead)
+.env
+.env.*
+!.env.example
+
+# Docker files (no need to copy into build context)
+Dockerfile
+docker-compose.yml
+.dockerignore
